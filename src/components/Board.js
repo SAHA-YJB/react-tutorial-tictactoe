@@ -4,8 +4,8 @@ import './Board.css';
 
 const Board = ({squares, onClick}) => {
   
-  const renderSquare = (i) => {
-    return <Square value={squares[i]}
+const renderSquare = (i) => {
+  return <Square value={squares[i]}
                    onClick={() => onClick(i)}/>
   }
 
