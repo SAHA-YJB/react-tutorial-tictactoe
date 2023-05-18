@@ -6,6 +6,7 @@ function App() {
 
   const [history, setHistory] = useState([{ squares: Array(9).fill(null) }]);
   const [xIsNext, setXIsNext] = useState(true);
+  const [stepNumber, setStepNumber] = useState(0)
 
   const calcWinner = (squares) => {
     const lines = [
@@ -27,7 +28,7 @@ function App() {
     return null
   }
 
-  const current = history[history.length - 1]
+  const current = history[stepNumber]
   const winner = calcWinner(current.squares)
 
   let status;
@@ -38,13 +39,17 @@ function App() {
   }
 
   const handleClick = (i) => {
-    const newSquares = current.squares.slice()
+    const newHistory = history.slice(0, stepNumber + 1)
+    const newCurrent = newHistory[newHistory.length - 1]
+    const newSquares = newCurrent.squares.slice()
     if (calcWinner(newSquares) || newSquares[i]) {
       return;
    }
     newSquares[i] = xIsNext ? 'X' : 'O'  
-    setHistory([...history, { squares: newSquares }]) 
-    setXIsNext(current => !current)
+    setHistory([...newHistory, { squares: newSquares }]) 
+    setXIsNext(cur => !cur)
+
+    setStepNumber(newHistory.length)
   }
 
   const moves = history.map((step, move) => {
@@ -53,10 +58,15 @@ function App() {
     : 'Go to game start' 
     return (
       <li key={move}>
-        <button>{desc}</button> 
+        <button className='move-button' onClick={() => jumpTo(move)}>{desc}</button> 
       </li>
     )
   })
+
+  const jumpTo = (step) => { 
+    setStepNumber(step)
+    setXIsNext(step % 2 === 0)  
+   }
 
   return (
     <div className="game">
@@ -67,7 +77,7 @@ function App() {
 
       <div className="game-info">
         <div className='status'>{status}</div>
-        <ol>{moves}</ol>
+        <ol style={ {listStyle: 'none'} }>{moves}</ol>
       </div>
       
     </div>
