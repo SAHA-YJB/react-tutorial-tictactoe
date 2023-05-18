@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-tutorial-tictactoe/static/css/main.d1e8d2b4.css",
+    "main.js": "/react-tutorial-tictactoe/static/js/main.fa1f172a.js",
+    "static/js/787.55faf92e.chunk.js": "/react-tutorial-tictactoe/static/js/787.55faf92e.chunk.js",
+    "index.html": "/react-tutorial-tictactoe/index.html",
+    "main.d1e8d2b4.css.map": "/react-tutorial-tictactoe/static/css/main.d1e8d2b4.css.map",
+    "main.fa1f172a.js.map": "/react-tutorial-tictactoe/static/js/main.fa1f172a.js.map",
+    "787.55faf92e.chunk.js.map": "/react-tutorial-tictactoe/static/js/787.55faf92e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1e8d2b4.css",
+    "static/js/main.fa1f172a.js"
+  ]
+}
